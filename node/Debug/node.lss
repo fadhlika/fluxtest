@@ -3,31 +3,31 @@ node.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800100  00800100  000004a6  2**0
+  0 .data         00000000  00800100  00800100  000004dc  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         00000432  00000000  00000000  00000074  2**1
+  1 .text         00000468  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000001  00800100  00800100  000004a6  2**0
+  2 .bss          00000001  00800100  00800100  000004dc  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  000004a6  2**0
+  3 .comment      00000030  00000000  00000000  000004dc  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000004d8  2**2
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  0000050c  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000038  00000000  00000000  00000518  2**0
+  5 .debug_aranges 00000038  00000000  00000000  0000054c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   000006d2  00000000  00000000  00000550  2**0
+  6 .debug_info   000006d2  00000000  00000000  00000584  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000625  00000000  00000000  00000c22  2**0
+  7 .debug_abbrev 00000625  00000000  00000000  00000c56  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   0000040e  00000000  00000000  00001247  2**0
+  8 .debug_line   00000456  00000000  00000000  0000127b  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000000c0  00000000  00000000  00001658  2**2
+  9 .debug_frame  000000c0  00000000  00000000  000016d4  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000368  00000000  00000000  00001718  2**0
+ 10 .debug_str    00000369  00000000  00000000  00001794  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000150  00000000  00000000  00001a80  2**0
+ 11 .debug_loc    00000150  00000000  00000000  00001afd  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000028  00000000  00000000  00001bd0  2**0
+ 12 .debug_ranges 00000028  00000000  00000000  00001c4d  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -36,9 +36,9 @@ Disassembly of section .text:
    0:	0c 94 4a 00 	jmp	0x94	; 0x94 <__ctors_end>
    4:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
    8:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
-   c:	0c 94 e3 00 	jmp	0x1c6	; 0x1c6 <__vector_3>
+   c:	0c 94 e8 00 	jmp	0x1d0	; 0x1d0 <__vector_3>
   10:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__vector_4>
-  14:	0c 94 74 01 	jmp	0x2e8	; 0x2e8 <__vector_5>
+  14:	0c 94 84 01 	jmp	0x308	; 0x308 <__vector_5>
   18:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
   1c:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
   20:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
@@ -59,28 +59,28 @@ Disassembly of section .text:
   5c:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
   60:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
   64:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
-  68:	fe 00       	.word	0x00fe	; ????
-  6a:	0b 01       	movw	r0, r22
-  6c:	19 01       	movw	r2, r18
-  6e:	27 01       	movw	r4, r14
-  70:	36 01       	movw	r6, r12
-  72:	67 01       	movw	r12, r14
-  74:	67 01       	movw	r12, r14
-  76:	67 01       	movw	r12, r14
-  78:	67 01       	movw	r12, r14
-  7a:	67 01       	movw	r12, r14
-  7c:	44 01       	movw	r8, r8
-  7e:	54 01       	movw	r10, r8
-  80:	8f 01       	movw	r16, r30
-  82:	9d 01       	movw	r18, r26
-  84:	b3 01       	movw	r22, r6
-  86:	c1 01       	movw	r24, r2
-  88:	cf 01       	movw	r24, r30
-  8a:	04 02       	muls	r16, r20
-  8c:	04 02       	muls	r16, r20
-  8e:	e0 01       	movw	r28, r0
-  90:	ed 01       	movw	r28, r26
-  92:	fb 01       	movw	r30, r22
+  68:	02 01       	movw	r0, r4
+  6a:	37 01       	movw	r6, r14
+  6c:	45 01       	movw	r8, r10
+  6e:	53 01       	movw	r10, r6
+  70:	61 01       	movw	r12, r2
+  72:	16 01       	movw	r2, r12
+  74:	16 01       	movw	r2, r12
+  76:	16 01       	movw	r2, r12
+  78:	16 01       	movw	r2, r12
+  7a:	16 01       	movw	r2, r12
+  7c:	6f 01       	movw	r12, r30
+  7e:	23 01       	movw	r4, r6
+  80:	9e 01       	movw	r18, r28
+  82:	ca 01       	movw	r24, r20
+  84:	d8 01       	movw	r26, r16
+  86:	e6 01       	movw	r28, r12
+  88:	f4 01       	movw	r30, r8
+  8a:	b3 01       	movw	r22, r6
+  8c:	b3 01       	movw	r22, r6
+  8e:	0a 02       	muls	r16, r26
+  90:	17 02       	muls	r17, r23
+  92:	c0 01       	movw	r24, r0
 
 00000094 <__ctors_end>:
   94:	11 24       	eor	r1, r1
@@ -104,7 +104,7 @@ Disassembly of section .text:
   ac:	b2 07       	cpc	r27, r18
   ae:	e1 f7       	brne	.-8      	; 0xa8 <.do_clear_bss_loop>
   b0:	0e 94 5e 00 	call	0xbc	; 0xbc <main>
-  b4:	0c 94 17 02 	jmp	0x42e	; 0x42e <_exit>
+  b4:	0c 94 32 02 	jmp	0x464	; 0x464 <_exit>
 
 000000b8 <__bad_interrupt>:
   b8:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -172,489 +172,548 @@ ISR(PCINT1_vect){
 	switch(n){
   fa:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
   fe:	82 30       	cpi	r24, 0x02	; 2
- 100:	b9 f1       	breq	.+110    	; 0x170 <__vector_4+0x8a>
- 102:	98 f4       	brcc	.+38     	; 0x12a <__vector_4+0x44>
- 104:	88 23       	and	r24, r24
- 106:	31 f1       	breq	.+76     	; 0x154 <__vector_4+0x6e>
- 108:	81 30       	cpi	r24, 0x01	; 1
- 10a:	09 f0       	breq	.+2      	; 0x10e <__vector_4+0x28>
- 10c:	52 c0       	rjmp	.+164    	; 0x1b2 <__vector_4+0xcc>
+ 100:	09 f4       	brne	.+2      	; 0x104 <__vector_4+0x1e>
+ 102:	59 c0       	rjmp	.+178    	; 0x1b6 <__vector_4+0xd0>
+ 104:	20 f5       	brcc	.+72     	; 0x14e <__vector_4+0x68>
+ 106:	88 23       	and	r24, r24
+ 108:	09 f4       	brne	.+2      	; 0x10c <__vector_4+0x26>
+ 10a:	47 c0       	rjmp	.+142    	; 0x19a <__vector_4+0xb4>
+ 10c:	81 30       	cpi	r24, 0x01	; 1
+ 10e:	a9 f4       	brne	.+42     	; 0x13a <__vector_4+0x54>
 		case 0 : PCMSK1 ^= (1  << PCINT12);
 				 PORTC ^= (1 << PORTC5);
 				 PCMSK1 ^= (1  << PCINT11);
 				 n++;
 				 break;
 		case 1 : PCMSK1 ^= (1  << PCINT11);
- 10e:	90 91 6c 00 	lds	r25, 0x006C	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
- 112:	88 e0       	ldi	r24, 0x08	; 8
- 114:	89 27       	eor	r24, r25
- 116:	80 93 6c 00 	sts	0x006C, r24	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
+ 110:	90 91 6c 00 	lds	r25, 0x006C	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
+ 114:	88 e0       	ldi	r24, 0x08	; 8
+ 116:	89 27       	eor	r24, r25
+ 118:	80 93 6c 00 	sts	0x006C, r24	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
 				 PORTC ^= (1 << PORTC5);
- 11a:	98 b1       	in	r25, 0x08	; 8
- 11c:	80 e2       	ldi	r24, 0x20	; 32
- 11e:	89 27       	eor	r24, r25
- 120:	88 b9       	out	0x08, r24	; 8
+ 11c:	98 b1       	in	r25, 0x08	; 8
+ 11e:	80 e2       	ldi	r24, 0x20	; 32
+ 120:	89 27       	eor	r24, r25
+ 122:	88 b9       	out	0x08, r24	; 8
 				 PCMSK1 ^= (1  << PCINT10);
- 122:	90 91 6c 00 	lds	r25, 0x006C	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
- 126:	84 e0       	ldi	r24, 0x04	; 4
- 128:	3c c0       	rjmp	.+120    	; 0x1a2 <__vector_4+0xbc>
+ 124:	90 91 6c 00 	lds	r25, 0x006C	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
+ 128:	84 e0       	ldi	r24, 0x04	; 4
+ 12a:	89 27       	eor	r24, r25
+ 12c:	80 93 6c 00 	sts	0x006C, r24	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
+				 n++;	
+ 130:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
+ 134:	8f 5f       	subi	r24, 0xFF	; 255
+ 136:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+				 PCMSK0 ^= (1  << PCINT5);
+				 n++;
+				 break;
+		default: break;
+	}
+	PCIFR = (1 << PCIF1);
+ 13a:	82 e0       	ldi	r24, 0x02	; 2
+ 13c:	8b bb       	out	0x1b, r24	; 27
+}
+ 13e:	9f 91       	pop	r25
+ 140:	8f 91       	pop	r24
+ 142:	2f 91       	pop	r18
+ 144:	0f 90       	pop	r0
+ 146:	0f be       	out	0x3f, r0	; 63
+ 148:	0f 90       	pop	r0
+ 14a:	1f 90       	pop	r1
+ 14c:	18 95       	reti
     }
 }
 
 ISR(PCINT1_vect){
 	PCIFR = (1 << PCIF1);
 	switch(n){
- 12a:	83 30       	cpi	r24, 0x03	; 3
- 12c:	71 f1       	breq	.+92     	; 0x18a <__vector_4+0xa4>
- 12e:	84 30       	cpi	r24, 0x04	; 4
- 130:	09 f0       	breq	.+2      	; 0x134 <__vector_4+0x4e>
- 132:	3f c0       	rjmp	.+126    	; 0x1b2 <__vector_4+0xcc>
+ 14e:	83 30       	cpi	r24, 0x03	; 3
+ 150:	b9 f0       	breq	.+46     	; 0x180 <__vector_4+0x9a>
+ 152:	84 30       	cpi	r24, 0x04	; 4
+ 154:	91 f7       	brne	.-28     	; 0x13a <__vector_4+0x54>
 		case 3 : PCMSK1 ^= (1  << PCINT9);
 				 PORTC ^= (1 << PORTC5);
 				 PCMSK1 ^= (1  << PCINT8);
 				 n++;
 				 break;
 		case 4 : PCMSK1 ^= (1  << PCINT8);
- 134:	90 91 6c 00 	lds	r25, 0x006C	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
- 138:	81 e0       	ldi	r24, 0x01	; 1
- 13a:	89 27       	eor	r24, r25
- 13c:	80 93 6c 00 	sts	0x006C, r24	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
+ 156:	90 91 6c 00 	lds	r25, 0x006C	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
+ 15a:	81 e0       	ldi	r24, 0x01	; 1
+ 15c:	89 27       	eor	r24, r25
+ 15e:	80 93 6c 00 	sts	0x006C, r24	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
 				 PORTC ^= (1 << PORTC5);
- 140:	98 b1       	in	r25, 0x08	; 8
- 142:	80 e2       	ldi	r24, 0x20	; 32
- 144:	98 27       	eor	r25, r24
- 146:	98 b9       	out	0x08, r25	; 8
+ 162:	98 b1       	in	r25, 0x08	; 8
+ 164:	80 e2       	ldi	r24, 0x20	; 32
+ 166:	98 27       	eor	r25, r24
+ 168:	98 b9       	out	0x08, r25	; 8
 				 PCMSK0 ^= (1  << PCINT5);
- 148:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
- 14c:	89 27       	eor	r24, r25
- 14e:	80 93 6b 00 	sts	0x006B, r24	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
- 152:	2a c0       	rjmp	.+84     	; 0x1a8 <__vector_4+0xc2>
+ 16a:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+ 16e:	89 27       	eor	r24, r25
+ 170:	80 93 6b 00 	sts	0x006B, r24	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+				 n++;
+ 174:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
+ 178:	8f 5f       	subi	r24, 0xFF	; 255
+ 17a:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+				 break;
+ 17e:	dd cf       	rjmp	.-70     	; 0x13a <__vector_4+0x54>
+		case 2 : PCMSK1 ^= (1  << PCINT10);
+				 PORTC ^= (1 << PORTC5);
+				 PCMSK1 ^= (1  << PCINT9);
+				 n++;
+				 break;
+		case 3 : PCMSK1 ^= (1  << PCINT9);
+ 180:	80 91 6c 00 	lds	r24, 0x006C	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
+ 184:	98 27       	eor	r25, r24
+ 186:	90 93 6c 00 	sts	0x006C, r25	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
+				 PORTC ^= (1 << PORTC5);
+ 18a:	98 b1       	in	r25, 0x08	; 8
+ 18c:	80 e2       	ldi	r24, 0x20	; 32
+ 18e:	89 27       	eor	r24, r25
+ 190:	88 b9       	out	0x08, r24	; 8
+				 PCMSK1 ^= (1  << PCINT8);
+ 192:	90 91 6c 00 	lds	r25, 0x006C	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
+ 196:	81 e0       	ldi	r24, 0x01	; 1
+ 198:	c8 cf       	rjmp	.-112    	; 0x12a <__vector_4+0x44>
 }
 
 ISR(PCINT1_vect){
 	PCIFR = (1 << PCIF1);
 	switch(n){
 		case 0 : PCMSK1 ^= (1  << PCINT12);
- 154:	90 91 6c 00 	lds	r25, 0x006C	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
- 158:	80 e1       	ldi	r24, 0x10	; 16
- 15a:	89 27       	eor	r24, r25
- 15c:	80 93 6c 00 	sts	0x006C, r24	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
+ 19a:	90 91 6c 00 	lds	r25, 0x006C	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
+ 19e:	80 e1       	ldi	r24, 0x10	; 16
+ 1a0:	89 27       	eor	r24, r25
+ 1a2:	80 93 6c 00 	sts	0x006C, r24	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
 				 PORTC ^= (1 << PORTC5);
- 160:	98 b1       	in	r25, 0x08	; 8
- 162:	80 e2       	ldi	r24, 0x20	; 32
- 164:	89 27       	eor	r24, r25
- 166:	88 b9       	out	0x08, r24	; 8
+ 1a6:	98 b1       	in	r25, 0x08	; 8
+ 1a8:	80 e2       	ldi	r24, 0x20	; 32
+ 1aa:	89 27       	eor	r24, r25
+ 1ac:	88 b9       	out	0x08, r24	; 8
 				 PCMSK1 ^= (1  << PCINT11);
- 168:	90 91 6c 00 	lds	r25, 0x006C	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
- 16c:	88 e0       	ldi	r24, 0x08	; 8
- 16e:	19 c0       	rjmp	.+50     	; 0x1a2 <__vector_4+0xbc>
+ 1ae:	90 91 6c 00 	lds	r25, 0x006C	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
+ 1b2:	88 e0       	ldi	r24, 0x08	; 8
+ 1b4:	ba cf       	rjmp	.-140    	; 0x12a <__vector_4+0x44>
 		case 1 : PCMSK1 ^= (1  << PCINT11);
 				 PORTC ^= (1 << PORTC5);
 				 PCMSK1 ^= (1  << PCINT10);
 				 n++;	
 				 break;
 		case 2 : PCMSK1 ^= (1  << PCINT10);
- 170:	20 91 6c 00 	lds	r18, 0x006C	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
- 174:	94 e0       	ldi	r25, 0x04	; 4
- 176:	92 27       	eor	r25, r18
- 178:	90 93 6c 00 	sts	0x006C, r25	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
+ 1b6:	20 91 6c 00 	lds	r18, 0x006C	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
+ 1ba:	94 e0       	ldi	r25, 0x04	; 4
+ 1bc:	92 27       	eor	r25, r18
+ 1be:	90 93 6c 00 	sts	0x006C, r25	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
 				 PORTC ^= (1 << PORTC5);
- 17c:	28 b1       	in	r18, 0x08	; 8
- 17e:	90 e2       	ldi	r25, 0x20	; 32
- 180:	92 27       	eor	r25, r18
- 182:	98 b9       	out	0x08, r25	; 8
+ 1c2:	28 b1       	in	r18, 0x08	; 8
+ 1c4:	90 e2       	ldi	r25, 0x20	; 32
+ 1c6:	92 27       	eor	r25, r18
+ 1c8:	98 b9       	out	0x08, r25	; 8
 				 PCMSK1 ^= (1  << PCINT9);
- 184:	90 91 6c 00 	lds	r25, 0x006C	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
- 188:	0c c0       	rjmp	.+24     	; 0x1a2 <__vector_4+0xbc>
-				 n++;
-				 break;
-		case 3 : PCMSK1 ^= (1  << PCINT9);
- 18a:	80 91 6c 00 	lds	r24, 0x006C	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
- 18e:	98 27       	eor	r25, r24
- 190:	90 93 6c 00 	sts	0x006C, r25	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
-				 PORTC ^= (1 << PORTC5);
- 194:	98 b1       	in	r25, 0x08	; 8
- 196:	80 e2       	ldi	r24, 0x20	; 32
- 198:	89 27       	eor	r24, r25
- 19a:	88 b9       	out	0x08, r24	; 8
-				 PCMSK1 ^= (1  << PCINT8);
- 19c:	90 91 6c 00 	lds	r25, 0x006C	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
- 1a0:	81 e0       	ldi	r24, 0x01	; 1
- 1a2:	89 27       	eor	r24, r25
- 1a4:	80 93 6c 00 	sts	0x006C, r24	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
-				 n++;
-				 break;
-		case 4 : PCMSK1 ^= (1  << PCINT8);
-				 PORTC ^= (1 << PORTC5);
-				 PCMSK0 ^= (1  << PCINT5);
-				 n++;
- 1a8:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
- 1ac:	8f 5f       	subi	r24, 0xFF	; 255
- 1ae:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
-				 break;
+ 1ca:	90 91 6c 00 	lds	r25, 0x006C	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
+ 1ce:	ad cf       	rjmp	.-166    	; 0x12a <__vector_4+0x44>
+
+000001d0 <__vector_3>:
 		default: break;
 	}
 	PCIFR = (1 << PCIF1);
- 1b2:	82 e0       	ldi	r24, 0x02	; 2
- 1b4:	8b bb       	out	0x1b, r24	; 27
 }
- 1b6:	9f 91       	pop	r25
- 1b8:	8f 91       	pop	r24
- 1ba:	2f 91       	pop	r18
- 1bc:	0f 90       	pop	r0
- 1be:	0f be       	out	0x3f, r0	; 63
- 1c0:	0f 90       	pop	r0
- 1c2:	1f 90       	pop	r1
- 1c4:	18 95       	reti
-
-000001c6 <__vector_3>:
 
 ISR(PCINT0_vect){
- 1c6:	1f 92       	push	r1
- 1c8:	0f 92       	push	r0
- 1ca:	0f b6       	in	r0, 0x3f	; 63
- 1cc:	0f 92       	push	r0
- 1ce:	11 24       	eor	r1, r1
- 1d0:	8f 93       	push	r24
- 1d2:	9f 93       	push	r25
- 1d4:	af 93       	push	r26
- 1d6:	bf 93       	push	r27
- 1d8:	ef 93       	push	r30
- 1da:	ff 93       	push	r31
+ 1d0:	1f 92       	push	r1
+ 1d2:	0f 92       	push	r0
+ 1d4:	0f b6       	in	r0, 0x3f	; 63
+ 1d6:	0f 92       	push	r0
+ 1d8:	11 24       	eor	r1, r1
+ 1da:	8f 93       	push	r24
+ 1dc:	9f 93       	push	r25
+ 1de:	af 93       	push	r26
+ 1e0:	bf 93       	push	r27
+ 1e2:	ef 93       	push	r30
+ 1e4:	ff 93       	push	r31
 PCIFR = (1 << PCIF0);
- 1dc:	81 e0       	ldi	r24, 0x01	; 1
- 1de:	8b bb       	out	0x1b, r24	; 27
+ 1e6:	81 e0       	ldi	r24, 0x01	; 1
+ 1e8:	8b bb       	out	0x1b, r24	; 27
 	switch(n){
- 1e0:	e0 91 00 01 	lds	r30, 0x0100	; 0x800100 <_edata>
- 1e4:	8e 2f       	mov	r24, r30
- 1e6:	90 e0       	ldi	r25, 0x00	; 0
- 1e8:	fc 01       	movw	r30, r24
- 1ea:	35 97       	sbiw	r30, 0x05	; 5
- 1ec:	ec 30       	cpi	r30, 0x0C	; 12
- 1ee:	f1 05       	cpc	r31, r1
- 1f0:	08 f0       	brcs	.+2      	; 0x1f4 <__vector_3+0x2e>
- 1f2:	6d c0       	rjmp	.+218    	; 0x2ce <__vector_3+0x108>
- 1f4:	ec 5c       	subi	r30, 0xCC	; 204
- 1f6:	ff 4f       	sbci	r31, 0xFF	; 255
- 1f8:	0c 94 11 02 	jmp	0x422	; 0x422 <__tablejump2__>
+ 1ea:	e0 91 00 01 	lds	r30, 0x0100	; 0x800100 <_edata>
+ 1ee:	8e 2f       	mov	r24, r30
+ 1f0:	90 e0       	ldi	r25, 0x00	; 0
+ 1f2:	fc 01       	movw	r30, r24
+ 1f4:	35 97       	sbiw	r30, 0x05	; 5
+ 1f6:	ec 30       	cpi	r30, 0x0C	; 12
+ 1f8:	f1 05       	cpc	r31, r1
+ 1fa:	c0 f4       	brcc	.+48     	; 0x22c <__vector_3+0x5c>
+ 1fc:	ec 5c       	subi	r30, 0xCC	; 204
+ 1fe:	ff 4f       	sbci	r31, 0xFF	; 255
+ 200:	0c 94 2c 02 	jmp	0x458	; 0x458 <__tablejump2__>
 		case 5 : PCMSK0 ^= (1  << PCINT5);
- 1fc:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
- 200:	80 e2       	ldi	r24, 0x20	; 32
- 202:	98 27       	eor	r25, r24
- 204:	90 93 6b 00 	sts	0x006B, r25	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+ 204:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+ 208:	80 e2       	ldi	r24, 0x20	; 32
+ 20a:	98 27       	eor	r25, r24
+ 20c:	90 93 6b 00 	sts	0x006B, r25	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
 				 PORTC ^= (1 << PORTC5);
- 208:	98 b1       	in	r25, 0x08	; 8
- 20a:	89 27       	eor	r24, r25
- 20c:	88 b9       	out	0x08, r24	; 8
+ 210:	98 b1       	in	r25, 0x08	; 8
+ 212:	89 27       	eor	r24, r25
+ 214:	88 b9       	out	0x08, r24	; 8
 				 PCMSK0 ^= (1  << PCINT4);
- 20e:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
- 212:	80 e1       	ldi	r24, 0x10	; 16
- 214:	29 c0       	rjmp	.+82     	; 0x268 <__vector_3+0xa2>
+ 216:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+ 21a:	80 e1       	ldi	r24, 0x10	; 16
 				 n++;
 				 break;
 		case 6 : PCMSK0 ^= (1  << PCINT4);
- 216:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
- 21a:	80 e1       	ldi	r24, 0x10	; 16
+				 PORTC ^= (1 << PORTC5);
+				 PCMSK0 ^= (1  << PCINT3);
  21c:	89 27       	eor	r24, r25
  21e:	80 93 6b 00 	sts	0x006B, r24	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
-				 PORTC ^= (1 << PORTC5);
- 222:	98 b1       	in	r25, 0x08	; 8
- 224:	80 e2       	ldi	r24, 0x20	; 32
- 226:	89 27       	eor	r24, r25
- 228:	88 b9       	out	0x08, r24	; 8
-				 PCMSK0 ^= (1  << PCINT3);
- 22a:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
- 22e:	88 e0       	ldi	r24, 0x08	; 8
- 230:	1b c0       	rjmp	.+54     	; 0x268 <__vector_3+0xa2>
 				 n++;
-				 break;
-		case 7 : PCMSK0 ^= (1  << PCINT3);
- 232:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
- 236:	88 e0       	ldi	r24, 0x08	; 8
- 238:	89 27       	eor	r24, r25
- 23a:	80 93 6b 00 	sts	0x006B, r24	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
-				 PORTC ^= (1 << PORTC5);
- 23e:	98 b1       	in	r25, 0x08	; 8
- 240:	80 e2       	ldi	r24, 0x20	; 32
- 242:	89 27       	eor	r24, r25
- 244:	88 b9       	out	0x08, r24	; 8
-				 PCMSK0 ^= (1  << PCINT2);
- 246:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
- 24a:	84 e0       	ldi	r24, 0x04	; 4
- 24c:	0d c0       	rjmp	.+26     	; 0x268 <__vector_3+0xa2>
-				 n++;
-				 break;
-		case 8 : PCMSK0 ^= (1  << PCINT2);
- 24e:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
- 252:	84 e0       	ldi	r24, 0x04	; 4
- 254:	89 27       	eor	r24, r25
- 256:	80 93 6b 00 	sts	0x006B, r24	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
-				 PORTC ^= (1 << PORTC5);
- 25a:	98 b1       	in	r25, 0x08	; 8
- 25c:	80 e2       	ldi	r24, 0x20	; 32
- 25e:	89 27       	eor	r24, r25
- 260:	88 b9       	out	0x08, r24	; 8
-				 PCMSK0 ^= (1  << PCINT1);
- 262:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
- 266:	82 e0       	ldi	r24, 0x02	; 2
- 268:	89 27       	eor	r24, r25
- 26a:	1b c0       	rjmp	.+54     	; 0x2a2 <__vector_3+0xdc>
-				 n++;
-				 break;
-		case 9 : PCMSK0 ^= (1  << PCINT1);
- 26c:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
- 270:	82 e0       	ldi	r24, 0x02	; 2
- 272:	89 27       	eor	r24, r25
- 274:	80 93 6b 00 	sts	0x006B, r24	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
-				 PORTC ^= (1 << PORTC5);
- 278:	98 b1       	in	r25, 0x08	; 8
- 27a:	80 e2       	ldi	r24, 0x20	; 32
- 27c:	89 27       	eor	r24, r25
- 27e:	88 b9       	out	0x08, r24	; 8
-				 PCMSK2 ^= (1  << PCINT16);
- 280:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
- 284:	81 e0       	ldi	r24, 0x01	; 1
- 286:	1b c0       	rjmp	.+54     	; 0x2be <__vector_3+0xf8>
-				 n++;
-				 break;
-		case 15 : PCMSK0 ^= (1  << PCINT6);
- 288:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
- 28c:	80 e4       	ldi	r24, 0x40	; 64
- 28e:	89 27       	eor	r24, r25
- 290:	80 93 6b 00 	sts	0x006B, r24	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
-				  PORTC ^= (1 << PORTC5);
- 294:	98 b1       	in	r25, 0x08	; 8
- 296:	80 e2       	ldi	r24, 0x20	; 32
- 298:	89 27       	eor	r24, r25
- 29a:	88 b9       	out	0x08, r24	; 8
-				  PCMSK0 ^= (1  << PCINT7);
- 29c:	80 91 6b 00 	lds	r24, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
- 2a0:	80 58       	subi	r24, 0x80	; 128
- 2a2:	80 93 6b 00 	sts	0x006B, r24	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
- 2a6:	0e c0       	rjmp	.+28     	; 0x2c4 <__vector_3+0xfe>
-				  n++;	
-		  		  break;
-		case 16 : PCMSK0 ^= (1  << PCINT7);
- 2a8:	80 91 6b 00 	lds	r24, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
- 2ac:	80 58       	subi	r24, 0x80	; 128
- 2ae:	80 93 6b 00 	sts	0x006B, r24	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
-				  PORTC ^= (1 << PORTC5);
- 2b2:	98 b1       	in	r25, 0x08	; 8
- 2b4:	80 e2       	ldi	r24, 0x20	; 32
- 2b6:	98 27       	eor	r25, r24
- 2b8:	98 b9       	out	0x08, r25	; 8
+ 222:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
+ 226:	8f 5f       	subi	r24, 0xFF	; 255
+ 228:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
 				  PCMSK2 ^= (1  << PCINT21);
- 2ba:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
- 2be:	89 27       	eor	r24, r25
- 2c0:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
 				  n++;
- 2c4:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
- 2c8:	8f 5f       	subi	r24, 0xFF	; 255
- 2ca:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
 				  break;
 		default: break;
 	}
 	PCIFR = (1 << PCIF0);
- 2ce:	81 e0       	ldi	r24, 0x01	; 1
- 2d0:	8b bb       	out	0x1b, r24	; 27
+ 22c:	81 e0       	ldi	r24, 0x01	; 1
+ 22e:	8b bb       	out	0x1b, r24	; 27
 }
- 2d2:	ff 91       	pop	r31
- 2d4:	ef 91       	pop	r30
- 2d6:	bf 91       	pop	r27
- 2d8:	af 91       	pop	r26
- 2da:	9f 91       	pop	r25
- 2dc:	8f 91       	pop	r24
- 2de:	0f 90       	pop	r0
- 2e0:	0f be       	out	0x3f, r0	; 63
- 2e2:	0f 90       	pop	r0
- 2e4:	1f 90       	pop	r1
- 2e6:	18 95       	reti
+ 230:	ff 91       	pop	r31
+ 232:	ef 91       	pop	r30
+ 234:	bf 91       	pop	r27
+ 236:	af 91       	pop	r26
+ 238:	9f 91       	pop	r25
+ 23a:	8f 91       	pop	r24
+ 23c:	0f 90       	pop	r0
+ 23e:	0f be       	out	0x3f, r0	; 63
+ 240:	0f 90       	pop	r0
+ 242:	1f 90       	pop	r1
+ 244:	18 95       	reti
+		case 15 : PCMSK0 ^= (1  << PCINT6);
+				  PORTC ^= (1 << PORTC5);
+				  PCMSK0 ^= (1  << PCINT7);
+				  n++;	
+		  		  break;
+		case 16 : PCMSK0 ^= (1  << PCINT7);
+ 246:	80 91 6b 00 	lds	r24, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+ 24a:	80 58       	subi	r24, 0x80	; 128
+ 24c:	80 93 6b 00 	sts	0x006B, r24	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+				  PORTC ^= (1 << PORTC5);
+ 250:	98 b1       	in	r25, 0x08	; 8
+ 252:	80 e2       	ldi	r24, 0x20	; 32
+ 254:	98 27       	eor	r25, r24
+ 256:	98 b9       	out	0x08, r25	; 8
+				  PCMSK2 ^= (1  << PCINT21);
+ 258:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+ 25c:	89 27       	eor	r24, r25
+ 25e:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+				  n++;
+ 262:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
+ 266:	8f 5f       	subi	r24, 0xFF	; 255
+ 268:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+				  break;
+ 26c:	df cf       	rjmp	.-66     	; 0x22c <__vector_3+0x5c>
+		case 5 : PCMSK0 ^= (1  << PCINT5);
+				 PORTC ^= (1 << PORTC5);
+				 PCMSK0 ^= (1  << PCINT4);
+				 n++;
+				 break;
+		case 6 : PCMSK0 ^= (1  << PCINT4);
+ 26e:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+ 272:	80 e1       	ldi	r24, 0x10	; 16
+ 274:	89 27       	eor	r24, r25
+ 276:	80 93 6b 00 	sts	0x006B, r24	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+				 PORTC ^= (1 << PORTC5);
+ 27a:	98 b1       	in	r25, 0x08	; 8
+ 27c:	80 e2       	ldi	r24, 0x20	; 32
+ 27e:	89 27       	eor	r24, r25
+ 280:	88 b9       	out	0x08, r24	; 8
+				 PCMSK0 ^= (1  << PCINT3);
+ 282:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+ 286:	88 e0       	ldi	r24, 0x08	; 8
+ 288:	c9 cf       	rjmp	.-110    	; 0x21c <__vector_3+0x4c>
+				 n++;
+				 break;
+		case 7 : PCMSK0 ^= (1  << PCINT3);
+ 28a:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+ 28e:	88 e0       	ldi	r24, 0x08	; 8
+ 290:	89 27       	eor	r24, r25
+ 292:	80 93 6b 00 	sts	0x006B, r24	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+				 PORTC ^= (1 << PORTC5);
+ 296:	98 b1       	in	r25, 0x08	; 8
+ 298:	80 e2       	ldi	r24, 0x20	; 32
+ 29a:	89 27       	eor	r24, r25
+ 29c:	88 b9       	out	0x08, r24	; 8
+				 PCMSK0 ^= (1  << PCINT2);
+ 29e:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+ 2a2:	84 e0       	ldi	r24, 0x04	; 4
+ 2a4:	bb cf       	rjmp	.-138    	; 0x21c <__vector_3+0x4c>
+				 n++;
+				 break;
+		case 8 : PCMSK0 ^= (1  << PCINT2);
+ 2a6:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+ 2aa:	84 e0       	ldi	r24, 0x04	; 4
+ 2ac:	89 27       	eor	r24, r25
+ 2ae:	80 93 6b 00 	sts	0x006B, r24	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+				 PORTC ^= (1 << PORTC5);
+ 2b2:	98 b1       	in	r25, 0x08	; 8
+ 2b4:	80 e2       	ldi	r24, 0x20	; 32
+ 2b6:	89 27       	eor	r24, r25
+ 2b8:	88 b9       	out	0x08, r24	; 8
+				 PCMSK0 ^= (1  << PCINT1);
+ 2ba:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+ 2be:	82 e0       	ldi	r24, 0x02	; 2
+ 2c0:	ad cf       	rjmp	.-166    	; 0x21c <__vector_3+0x4c>
+				 n++;
+				 break;
+		case 9 : PCMSK0 ^= (1  << PCINT1);
+ 2c2:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+ 2c6:	82 e0       	ldi	r24, 0x02	; 2
+ 2c8:	89 27       	eor	r24, r25
+ 2ca:	80 93 6b 00 	sts	0x006B, r24	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+				 PORTC ^= (1 << PORTC5);
+ 2ce:	98 b1       	in	r25, 0x08	; 8
+ 2d0:	80 e2       	ldi	r24, 0x20	; 32
+ 2d2:	89 27       	eor	r24, r25
+ 2d4:	88 b9       	out	0x08, r24	; 8
+				 PCMSK2 ^= (1  << PCINT16);
+ 2d6:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+ 2da:	81 e0       	ldi	r24, 0x01	; 1
+ 2dc:	bf cf       	rjmp	.-130    	; 0x25c <__vector_3+0x8c>
+				 n++;
+				 break;
+		case 15 : PCMSK0 ^= (1  << PCINT6);
+ 2de:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+ 2e2:	80 e4       	ldi	r24, 0x40	; 64
+ 2e4:	89 27       	eor	r24, r25
+ 2e6:	80 93 6b 00 	sts	0x006B, r24	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+				  PORTC ^= (1 << PORTC5);
+ 2ea:	98 b1       	in	r25, 0x08	; 8
+ 2ec:	80 e2       	ldi	r24, 0x20	; 32
+ 2ee:	89 27       	eor	r24, r25
+ 2f0:	88 b9       	out	0x08, r24	; 8
+				  PCMSK0 ^= (1  << PCINT7);
+ 2f2:	80 91 6b 00 	lds	r24, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+ 2f6:	80 58       	subi	r24, 0x80	; 128
+ 2f8:	80 93 6b 00 	sts	0x006B, r24	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+				  n++;	
+ 2fc:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
+ 300:	8f 5f       	subi	r24, 0xFF	; 255
+ 302:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+		  		  break;
+ 306:	92 cf       	rjmp	.-220    	; 0x22c <__vector_3+0x5c>
 
-000002e8 <__vector_5>:
+00000308 <__vector_5>:
+		default: break;
+	}
+	PCIFR = (1 << PCIF0);
+}
 
 ISR(PCINT2_vect){
- 2e8:	1f 92       	push	r1
- 2ea:	0f 92       	push	r0
- 2ec:	0f b6       	in	r0, 0x3f	; 63
- 2ee:	0f 92       	push	r0
- 2f0:	11 24       	eor	r1, r1
- 2f2:	8f 93       	push	r24
- 2f4:	9f 93       	push	r25
- 2f6:	af 93       	push	r26
- 2f8:	bf 93       	push	r27
- 2fa:	ef 93       	push	r30
- 2fc:	ff 93       	push	r31
+ 308:	1f 92       	push	r1
+ 30a:	0f 92       	push	r0
+ 30c:	0f b6       	in	r0, 0x3f	; 63
+ 30e:	0f 92       	push	r0
+ 310:	11 24       	eor	r1, r1
+ 312:	8f 93       	push	r24
+ 314:	9f 93       	push	r25
+ 316:	af 93       	push	r26
+ 318:	bf 93       	push	r27
+ 31a:	ef 93       	push	r30
+ 31c:	ff 93       	push	r31
 	PCIFR = (1 << PCIF2);
- 2fe:	84 e0       	ldi	r24, 0x04	; 4
- 300:	8b bb       	out	0x1b, r24	; 27
+ 31e:	84 e0       	ldi	r24, 0x04	; 4
+ 320:	8b bb       	out	0x1b, r24	; 27
 	switch(n){
- 302:	e0 91 00 01 	lds	r30, 0x0100	; 0x800100 <_edata>
- 306:	8e 2f       	mov	r24, r30
- 308:	90 e0       	ldi	r25, 0x00	; 0
- 30a:	fc 01       	movw	r30, r24
- 30c:	3a 97       	sbiw	r30, 0x0a	; 10
- 30e:	ea 30       	cpi	r30, 0x0A	; 10
- 310:	f1 05       	cpc	r31, r1
- 312:	08 f0       	brcs	.+2      	; 0x316 <__vector_5+0x2e>
- 314:	79 c0       	rjmp	.+242    	; 0x408 <__LOCK_REGION_LENGTH__+0x8>
- 316:	e0 5c       	subi	r30, 0xC0	; 192
- 318:	ff 4f       	sbci	r31, 0xFF	; 255
- 31a:	0c 94 11 02 	jmp	0x422	; 0x422 <__tablejump2__>
+ 322:	e0 91 00 01 	lds	r30, 0x0100	; 0x800100 <_edata>
+ 326:	8e 2f       	mov	r24, r30
+ 328:	90 e0       	ldi	r25, 0x00	; 0
+ 32a:	fc 01       	movw	r30, r24
+ 32c:	3a 97       	sbiw	r30, 0x0a	; 10
+ 32e:	ea 30       	cpi	r30, 0x0A	; 10
+ 330:	f1 05       	cpc	r31, r1
+ 332:	c8 f4       	brcc	.+50     	; 0x366 <__vector_5+0x5e>
+ 334:	e0 5c       	subi	r30, 0xC0	; 192
+ 336:	ff 4f       	sbci	r31, 0xFF	; 255
+ 338:	0c 94 2c 02 	jmp	0x458	; 0x458 <__tablejump2__>
 		case 10 : PCMSK2 ^= (1  << PCINT16);
- 31e:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
- 322:	81 e0       	ldi	r24, 0x01	; 1
- 324:	89 27       	eor	r24, r25
- 326:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+ 33c:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+ 340:	81 e0       	ldi	r24, 0x01	; 1
+ 342:	89 27       	eor	r24, r25
+ 344:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
 				  PORTC ^= (1 << PORTC5);
- 32a:	98 b1       	in	r25, 0x08	; 8
- 32c:	80 e2       	ldi	r24, 0x20	; 32
- 32e:	89 27       	eor	r24, r25
- 330:	88 b9       	out	0x08, r24	; 8
+ 348:	98 b1       	in	r25, 0x08	; 8
+ 34a:	80 e2       	ldi	r24, 0x20	; 32
+ 34c:	89 27       	eor	r24, r25
+ 34e:	88 b9       	out	0x08, r24	; 8
 				  PCMSK2 ^= (1  << PCINT17);
- 332:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
- 336:	82 e0       	ldi	r24, 0x02	; 2
- 338:	0d c0       	rjmp	.+26     	; 0x354 <__vector_5+0x6c>
+ 350:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+ 354:	82 e0       	ldi	r24, 0x02	; 2
 				  n++;
 				  break;
 		case 11 : PCMSK2 ^= (1  << PCINT17);
- 33a:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
- 33e:	82 e0       	ldi	r24, 0x02	; 2
- 340:	89 27       	eor	r24, r25
- 342:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
 				  PORTC ^= (1 << PORTC5);
- 346:	98 b1       	in	r25, 0x08	; 8
- 348:	80 e2       	ldi	r24, 0x20	; 32
- 34a:	89 27       	eor	r24, r25
- 34c:	88 b9       	out	0x08, r24	; 8
 				  PCMSK2 ^= (1  << PCINT18);
- 34e:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
- 352:	84 e0       	ldi	r24, 0x04	; 4
- 354:	89 27       	eor	r24, r25
- 356:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+ 356:	89 27       	eor	r24, r25
+ 358:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
 				  n++;
- 35a:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
- 35e:	8f 5f       	subi	r24, 0xFF	; 255
- 360:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
-				  break;
- 364:	51 c0       	rjmp	.+162    	; 0x408 <__LOCK_REGION_LENGTH__+0x8>
-		case 12 : PCMSK2 ^= (1  << PCINT18);
- 366:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
- 36a:	84 e0       	ldi	r24, 0x04	; 4
- 36c:	89 27       	eor	r24, r25
- 36e:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
-				  PORTC ^= (1 << PORTC5);
- 372:	98 b1       	in	r25, 0x08	; 8
- 374:	80 e2       	ldi	r24, 0x20	; 32
- 376:	89 27       	eor	r24, r25
- 378:	88 b9       	out	0x08, r24	; 8
-				  PCMSK2 ^= (1  << PCINT19);
- 37a:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
- 37e:	88 e0       	ldi	r24, 0x08	; 8
- 380:	e9 cf       	rjmp	.-46     	; 0x354 <__vector_5+0x6c>
-				  n++;
-				  break;
-		case 13 : PCMSK2 ^= (1  << PCINT19);
- 382:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
- 386:	88 e0       	ldi	r24, 0x08	; 8
- 388:	89 27       	eor	r24, r25
- 38a:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
-				  PORTC ^= (1 << PORTC5);
- 38e:	98 b1       	in	r25, 0x08	; 8
- 390:	80 e2       	ldi	r24, 0x20	; 32
- 392:	89 27       	eor	r24, r25
- 394:	88 b9       	out	0x08, r24	; 8
-				  PCMSK2 ^= (1  << PCINT20);
- 396:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
- 39a:	80 e1       	ldi	r24, 0x10	; 16
- 39c:	db cf       	rjmp	.-74     	; 0x354 <__vector_5+0x6c>
-				  n++;
-				  break;
-		case 14 : PCMSK2 ^= (1  << PCINT20);
- 39e:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
- 3a2:	80 e1       	ldi	r24, 0x10	; 16
- 3a4:	89 27       	eor	r24, r25
- 3a6:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
-				  PORTC ^= (1 << PORTC5);
- 3aa:	98 b1       	in	r25, 0x08	; 8
- 3ac:	80 e2       	ldi	r24, 0x20	; 32
- 3ae:	89 27       	eor	r24, r25
- 3b0:	88 b9       	out	0x08, r24	; 8
-				  PCMSK0 ^= (1  << PCINT6);
- 3b2:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
- 3b6:	80 e4       	ldi	r24, 0x40	; 64
- 3b8:	89 27       	eor	r24, r25
- 3ba:	80 93 6b 00 	sts	0x006B, r24	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
- 3be:	cd cf       	rjmp	.-102    	; 0x35a <__vector_5+0x72>
-				  n++;
-				  break;
-		case 17 : PCMSK2 ^= (1  << PCINT21);
- 3c0:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
- 3c4:	80 e2       	ldi	r24, 0x20	; 32
- 3c6:	98 27       	eor	r25, r24
- 3c8:	90 93 6d 00 	sts	0x006D, r25	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
-				  PORTC ^= (1 << PORTC5);
- 3cc:	98 b1       	in	r25, 0x08	; 8
- 3ce:	89 27       	eor	r24, r25
- 3d0:	88 b9       	out	0x08, r24	; 8
-		          PCMSK2 ^= (1  << PCINT22);
- 3d2:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
- 3d6:	80 e4       	ldi	r24, 0x40	; 64
- 3d8:	bd cf       	rjmp	.-134    	; 0x354 <__vector_5+0x6c>
-				  n++;
-				  break;
-		case 18 : PCMSK2 ^= (1  << PCINT22);
- 3da:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
- 3de:	80 e4       	ldi	r24, 0x40	; 64
- 3e0:	89 27       	eor	r24, r25
- 3e2:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
-				  PORTC ^= (1 << PORTC5);
- 3e6:	98 b1       	in	r25, 0x08	; 8
- 3e8:	80 e2       	ldi	r24, 0x20	; 32
- 3ea:	89 27       	eor	r24, r25
- 3ec:	88 b9       	out	0x08, r24	; 8
-				  PCMSK2 ^= (1  << PCINT23);
- 3ee:	80 91 6d 00 	lds	r24, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
- 3f2:	80 58       	subi	r24, 0x80	; 128
- 3f4:	b0 cf       	rjmp	.-160    	; 0x356 <__vector_5+0x6e>
-				  n++;
-				  break;
+ 35c:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
+ 360:	8f 5f       	subi	r24, 0xFF	; 255
+ 362:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
 		case 19 : PCMSK2 ^= (1  << PCINT23);
- 3f6:	80 91 6d 00 	lds	r24, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
- 3fa:	80 58       	subi	r24, 0x80	; 128
- 3fc:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
 				  PORTC ^= (1 << PORTC5);
- 400:	98 b1       	in	r25, 0x08	; 8
- 402:	80 e2       	ldi	r24, 0x20	; 32
- 404:	89 27       	eor	r24, r25
- 406:	88 b9       	out	0x08, r24	; 8
 				  break;
 		default: break;
 	}
 	PCIFR = (1 << PCIF2);
- 408:	84 e0       	ldi	r24, 0x04	; 4
- 40a:	8b bb       	out	0x1b, r24	; 27
- 40c:	ff 91       	pop	r31
- 40e:	ef 91       	pop	r30
- 410:	bf 91       	pop	r27
- 412:	af 91       	pop	r26
- 414:	9f 91       	pop	r25
- 416:	8f 91       	pop	r24
- 418:	0f 90       	pop	r0
- 41a:	0f be       	out	0x3f, r0	; 63
- 41c:	0f 90       	pop	r0
- 41e:	1f 90       	pop	r1
- 420:	18 95       	reti
+ 366:	84 e0       	ldi	r24, 0x04	; 4
+ 368:	8b bb       	out	0x1b, r24	; 27
+ 36a:	ff 91       	pop	r31
+ 36c:	ef 91       	pop	r30
+ 36e:	bf 91       	pop	r27
+ 370:	af 91       	pop	r26
+ 372:	9f 91       	pop	r25
+ 374:	8f 91       	pop	r24
+ 376:	0f 90       	pop	r0
+ 378:	0f be       	out	0x3f, r0	; 63
+ 37a:	0f 90       	pop	r0
+ 37c:	1f 90       	pop	r1
+ 37e:	18 95       	reti
+		case 18 : PCMSK2 ^= (1  << PCINT22);
+				  PORTC ^= (1 << PORTC5);
+				  PCMSK2 ^= (1  << PCINT23);
+				  n++;
+				  break;
+		case 19 : PCMSK2 ^= (1  << PCINT23);
+ 380:	80 91 6d 00 	lds	r24, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+ 384:	80 58       	subi	r24, 0x80	; 128
+ 386:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+				  PORTC ^= (1 << PORTC5);
+ 38a:	98 b1       	in	r25, 0x08	; 8
+ 38c:	80 e2       	ldi	r24, 0x20	; 32
+ 38e:	89 27       	eor	r24, r25
+ 390:	88 b9       	out	0x08, r24	; 8
+				  break;
+ 392:	e9 cf       	rjmp	.-46     	; 0x366 <__vector_5+0x5e>
+		case 10 : PCMSK2 ^= (1  << PCINT16);
+				  PORTC ^= (1 << PORTC5);
+				  PCMSK2 ^= (1  << PCINT17);
+				  n++;
+				  break;
+		case 11 : PCMSK2 ^= (1  << PCINT17);
+ 394:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+ 398:	82 e0       	ldi	r24, 0x02	; 2
+ 39a:	89 27       	eor	r24, r25
+ 39c:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+				  PORTC ^= (1 << PORTC5);
+ 3a0:	98 b1       	in	r25, 0x08	; 8
+ 3a2:	80 e2       	ldi	r24, 0x20	; 32
+ 3a4:	89 27       	eor	r24, r25
+ 3a6:	88 b9       	out	0x08, r24	; 8
+				  PCMSK2 ^= (1  << PCINT18);
+ 3a8:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+ 3ac:	84 e0       	ldi	r24, 0x04	; 4
+ 3ae:	d3 cf       	rjmp	.-90     	; 0x356 <__vector_5+0x4e>
+				  n++;
+				  break;
+		case 12 : PCMSK2 ^= (1  << PCINT18);
+ 3b0:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+ 3b4:	84 e0       	ldi	r24, 0x04	; 4
+ 3b6:	89 27       	eor	r24, r25
+ 3b8:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+				  PORTC ^= (1 << PORTC5);
+ 3bc:	98 b1       	in	r25, 0x08	; 8
+ 3be:	80 e2       	ldi	r24, 0x20	; 32
+ 3c0:	89 27       	eor	r24, r25
+ 3c2:	88 b9       	out	0x08, r24	; 8
+				  PCMSK2 ^= (1  << PCINT19);
+ 3c4:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+ 3c8:	88 e0       	ldi	r24, 0x08	; 8
+ 3ca:	c5 cf       	rjmp	.-118    	; 0x356 <__vector_5+0x4e>
+				  n++;
+				  break;
+		case 13 : PCMSK2 ^= (1  << PCINT19);
+ 3cc:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+ 3d0:	88 e0       	ldi	r24, 0x08	; 8
+ 3d2:	89 27       	eor	r24, r25
+ 3d4:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+				  PORTC ^= (1 << PORTC5);
+ 3d8:	98 b1       	in	r25, 0x08	; 8
+ 3da:	80 e2       	ldi	r24, 0x20	; 32
+ 3dc:	89 27       	eor	r24, r25
+ 3de:	88 b9       	out	0x08, r24	; 8
+				  PCMSK2 ^= (1  << PCINT20);
+ 3e0:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+ 3e4:	80 e1       	ldi	r24, 0x10	; 16
+ 3e6:	b7 cf       	rjmp	.-146    	; 0x356 <__vector_5+0x4e>
+				  n++;
+				  break;
+		case 14 : PCMSK2 ^= (1  << PCINT20);
+ 3e8:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+ 3ec:	80 e1       	ldi	r24, 0x10	; 16
+ 3ee:	89 27       	eor	r24, r25
+ 3f0:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+				  PORTC ^= (1 << PORTC5);
+ 3f4:	98 b1       	in	r25, 0x08	; 8
+ 3f6:	80 e2       	ldi	r24, 0x20	; 32
+ 3f8:	89 27       	eor	r24, r25
+ 3fa:	88 b9       	out	0x08, r24	; 8
+				  PCMSK0 ^= (1  << PCINT6);
+ 3fc:	90 91 6b 00 	lds	r25, 0x006B	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+ 400:	80 e4       	ldi	r24, 0x40	; 64
+ 402:	89 27       	eor	r24, r25
+ 404:	80 93 6b 00 	sts	0x006B, r24	; 0x80006b <__TEXT_REGION_LENGTH__+0x7e006b>
+				  n++;
+ 408:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
+ 40c:	8f 5f       	subi	r24, 0xFF	; 255
+ 40e:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+				  break;
+ 412:	a9 cf       	rjmp	.-174    	; 0x366 <__vector_5+0x5e>
+		case 17 : PCMSK2 ^= (1  << PCINT21);
+ 414:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+ 418:	80 e2       	ldi	r24, 0x20	; 32
+ 41a:	98 27       	eor	r25, r24
+ 41c:	90 93 6d 00 	sts	0x006D, r25	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+				  PORTC ^= (1 << PORTC5);
+ 420:	98 b1       	in	r25, 0x08	; 8
+ 422:	89 27       	eor	r24, r25
+ 424:	88 b9       	out	0x08, r24	; 8
+		          PCMSK2 ^= (1  << PCINT22);
+ 426:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+ 42a:	80 e4       	ldi	r24, 0x40	; 64
+ 42c:	94 cf       	rjmp	.-216    	; 0x356 <__vector_5+0x4e>
+				  n++;
+				  break;
+		case 18 : PCMSK2 ^= (1  << PCINT22);
+ 42e:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+ 432:	80 e4       	ldi	r24, 0x40	; 64
+ 434:	89 27       	eor	r24, r25
+ 436:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+				  PORTC ^= (1 << PORTC5);
+ 43a:	98 b1       	in	r25, 0x08	; 8
+ 43c:	80 e2       	ldi	r24, 0x20	; 32
+ 43e:	89 27       	eor	r24, r25
+ 440:	88 b9       	out	0x08, r24	; 8
+				  PCMSK2 ^= (1  << PCINT23);
+ 442:	80 91 6d 00 	lds	r24, 0x006D	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+ 446:	80 58       	subi	r24, 0x80	; 128
+ 448:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <__TEXT_REGION_LENGTH__+0x7e006d>
+				  n++;
+ 44c:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
+ 450:	8f 5f       	subi	r24, 0xFF	; 255
+ 452:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+				  break;
+ 456:	87 cf       	rjmp	.-242    	; 0x366 <__vector_5+0x5e>
 
-00000422 <__tablejump2__>:
- 422:	ee 0f       	add	r30, r30
- 424:	ff 1f       	adc	r31, r31
- 426:	05 90       	lpm	r0, Z+
- 428:	f4 91       	lpm	r31, Z
- 42a:	e0 2d       	mov	r30, r0
- 42c:	09 94       	ijmp
+00000458 <__tablejump2__>:
+ 458:	ee 0f       	add	r30, r30
+ 45a:	ff 1f       	adc	r31, r31
+ 45c:	05 90       	lpm	r0, Z+
+ 45e:	f4 91       	lpm	r31, Z
+ 460:	e0 2d       	mov	r30, r0
+ 462:	09 94       	ijmp
 
-0000042e <_exit>:
- 42e:	f8 94       	cli
+00000464 <_exit>:
+ 464:	f8 94       	cli
 
-00000430 <__stop_program>:
- 430:	ff cf       	rjmp	.-2      	; 0x430 <__stop_program>
+00000466 <__stop_program>:
+ 466:	ff cf       	rjmp	.-2      	; 0x466 <__stop_program>
