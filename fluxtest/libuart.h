@@ -5,15 +5,14 @@
  *  Author: fadhlika
  */ 
 
+
 #ifndef LIBUART_H_
 #define LIBUART_H_
-
-#define BAUD 1000000
-#define MYUBRR ((16000000/(BAUD*16UL))-1)
-char usart_getchar( void );
-void usart_init(void);
-void usart_putchar( char data );
-void usart_pstr (char *s);
-unsigned char usart_kbhit(void);
-int usart_putchar_printf(char var, FILE *stream);
+#include <avr/io.h>
+#include <avr/sfr_defs.h>
+#include <avr/pgmspace.h>
+#include <stdio.h>
+void usart_init(unsigned long baud);
+int usart_send(char data, FILE *stream);
+int usart_receive(FILE *stream);
 #endif /* LIBUART_H_ */

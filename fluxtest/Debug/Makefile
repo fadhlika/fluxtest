@@ -37,9 +37,9 @@ SUBDIRS :=
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../i2c_master.c \
 ../libuart.c \
-../main.c \
-../twowire.c
+../main.c
 
 
 PREPROCESSING_SRCS += 
@@ -49,24 +49,24 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+i2c_master.o \
 libuart.o \
-main.o \
-twowire.o
+main.o
 
 OBJS_AS_ARGS +=  \
+i2c_master.o \
 libuart.o \
-main.o \
-twowire.o
+main.o
 
 C_DEPS +=  \
+i2c_master.d \
 libuart.d \
-main.d \
-twowire.d
+main.d
 
 C_DEPS_AS_ARGS +=  \
+i2c_master.d \
 libuart.d \
-main.d \
-twowire.d
+main.d
 
 OUTPUT_FILE_PATH +=fluxtest.elf
 
@@ -92,7 +92,7 @@ LINKER_SCRIPT_DEP+=
 ./%.o: .././%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 4.9.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include"  -O3 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega328p" -c -std=gnu99 -DF_CPU=16000000UL -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega328p" -c -std=gnu99 -DF_CPU=16000000UL -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
@@ -121,7 +121,7 @@ all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
 	@echo Building target: $@
 	@echo Invoking: AVR/GNU Linker : 4.9.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="fluxtest.map" -Wl,-u,vfprintf -Wl,--start-group -Wl,-lm -Wl,-lprintf_flt -Wl,-lscanf_flt -Wl,-lprintf_min -Wl,-lscanf_min  -Wl,--end-group -Wl,-L"C:\Users\fadhlika\Documents\Atmel Studio\7.0\Projects\fluxtest\fluxtest" -Wl,-L"C:\Users\fadhlika\Documents\Atmel Studio\7.0\Projects\libuart\libuart\Release" -Wl,-L"C:\Users\fadhlika\Documents\Atmel Studio\7.0\Projects\twowire\twowire\Debug"  -Wl,--gc-sections -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega328p"  
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="fluxtest.map" -Wl,-u,vfprintf -Wl,--start-group -Wl,-lm -Wl,-lprintf_flt -Wl,-lscanf_flt -Wl,-lprintf_min -Wl,-lscanf_min  -Wl,--end-group -Wl,-L"C:\Users\fadhlika\Documents\Atmel Studio\7.0\Projects\fluxtest\fluxtest" -Wl,-L"C:\Users\fadhlika\Documents\Atmel Studio\7.0\Projects\libuart\libuart\Release" -Wl,-L"C:\Users\fadhlika\Documents\Atmel Studio\7.0\Projects\twowire\twowire\Debug"  -Wl,--gc-sections -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega328p" -Wl,-u,vfscanf  
 	@echo Finished building target: $@
 	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "fluxtest.elf" "fluxtest.hex"
 	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "fluxtest.elf" "fluxtest.eep" || exit 0

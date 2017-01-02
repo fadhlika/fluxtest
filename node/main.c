@@ -31,10 +31,7 @@ int main(void)
 	PORTC |= (1 << PORTC5);
 
     sei();														//enable global interrupt
-    while (1) 
-    {
-
-    }
+    while (1);
 }
 
 ISR(PCINT1_vect){
@@ -50,7 +47,7 @@ ISR(PCINT1_vect){
 				 PCMSK1 ^= (1  << PCINT10);
 				 n++;	
 				 break;
-		case 2 : PCMSK1 ^= (1  << PCINT10);
+		case 2 : PCMSK1 ^= (1  << PCINT10); 
 				 PORTC ^= (1 << PORTC5);
 				 PCMSK1 ^= (1  << PCINT9);
 				 n++;

@@ -148,10 +148,7 @@ int main(void)
 
     sei();														//enable global interrupt
   e2:	78 94       	sei
-    while (1) 
-    {
-
-    }
+    while (1);
   e4:	ff cf       	rjmp	.-2      	; 0xe4 <main+0x28>
 
 000000e6 <__vector_4>:
@@ -221,7 +218,7 @@ ISR(PCINT1_vect){
  148:	0f 90       	pop	r0
  14a:	1f 90       	pop	r1
  14c:	18 95       	reti
-    }
+    while (1);
 }
 
 ISR(PCINT1_vect){
@@ -256,7 +253,7 @@ ISR(PCINT1_vect){
  17a:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
 				 break;
  17e:	dd cf       	rjmp	.-70     	; 0x13a <__vector_4+0x54>
-		case 2 : PCMSK1 ^= (1  << PCINT10);
+		case 2 : PCMSK1 ^= (1  << PCINT10); 
 				 PORTC ^= (1 << PORTC5);
 				 PCMSK1 ^= (1  << PCINT9);
 				 n++;
@@ -298,7 +295,7 @@ ISR(PCINT1_vect){
 				 PCMSK1 ^= (1  << PCINT10);
 				 n++;	
 				 break;
-		case 2 : PCMSK1 ^= (1  << PCINT10);
+		case 2 : PCMSK1 ^= (1  << PCINT10); 
  1b6:	20 91 6c 00 	lds	r18, 0x006C	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
  1ba:	94 e0       	ldi	r25, 0x04	; 4
  1bc:	92 27       	eor	r25, r18

@@ -8,87 +8,95 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <stdio.h>
+#include <stdint.h>
 #include <stdbool.h>
 #include "libuart.h"
-#include "twowire.h"
+#include "i2c_master.h"
 
 #define DP_ADDRESS 0x81
 
-volatile uint8_t count;
-volatile uint16_t timer;
-volatile uint8_t ovf;
+volatile uint8_t lvl;
+volatile unsigned int timer;
+volatile unsigned int ovft;
+volatile unsigned int ovf;
 volatile bool intflag;
-uint16_t dp;
-void read_dp();
+int readsdp();
+volatile int dp;
+volatile char cmd;
 
 int main(void)
 {
-	count = 0;		//set count as zero initially
-	ovf = 0;		//set overflow as zero initially
-	dp = 0;			//set dp initially zero
+	MCUCR &= ~(1 << WDRF);
+	WDTCSR |= (1 << WDCE) | (1 << WDE);
+	WDTCSR = 0x00;
+	
+	lvl = 0;		//set count as zero initially
+	ovft = 0;		//set overflow as zero initially
+	ovf = 0;
 	intflag = false; // set interrupt flag as false initially
-
-	MCUCR |= (1 << PUD); // Pull-up disable
-	PORTD = (1 << PORTD3) | (1 << PORTD2) ; //Pull up PD3 and PD2
+	dp = 0;
 
 	EICRA = 0x05; //Any logical change will trigger interrupt
 	EIMSK = 0x03; //enable both INT0 and INT1
 	TCCR1B = 0x05; //Using precaler 1024
+	TIMSK1 = 0x01;
 	
+	
+
 	sei(); //Enable global interrupt'
-	usart_init(); //Usart initialization
-	tw_init(); // Two wire initialization
+	usart_init(1000000); //Usart initialization
+	i2c_init(); // Two wire initialization
 
 	printf("Start Up\n");	//Print "start up" when start to indicate the device booted;
     while (1) 
     {
 		//print data if intflag set true in interrupt routine
 		if(intflag) { 
-			read_dp();
-			printf("%u\t%u\t%u\t%u\n", count, ovf, timer, dp);
-			ovf = 0;
-			dp = 0;
+			if(lvl == 1) { ovf = 0; timer = 0; }
+			printf("%u;%u;%u;%i\n", lvl, ovf, timer, dp);
 			intflag = false;
+		}
+		if(cmd == 'a'){
+			WDTCSR |= (1 << WDCE) | (1 << WDE);
+			while(1);
 		}
     }
 }
 
-void read_dp(){
-	tw_start();
-	tw_write(DP_ADDRESS);
-	tw_write(0xFE);
-	tw_start();
-	tw_write(DP_ADDRESS);
-	tw_write(0xF1);
-	tw_start();
-	tw_write(DP_ADDRESS | TW_READ);
-	uint8_t temp = tw_read_ack();
-	dp = (temp << 8) | tw_read_ack();
-	uint8_t check = tw_read_ack();
-	tw_stop();
+int readsdp(){
+	i2c_start(0x80);
+	i2c_write(0xF1);
+	i2c_start(0x81);
+	int hi = i2c_read_ack();
+	int lo = i2c_read_nack();
+	i2c_stop();
+	int value = (hi << 8) | lo;
+	return value;
 }
 
 ISR(INT1_vect){
 	timer = TCNT1;
+	ovf = ovft;
+	dp = readsdp();
+	ovft = 0;
 	TCNT1 = 0;
-	count++;
-	if(count == 1){
-		printf("Start\n");
-	}else{
-		intflag = true;
-	}
+	lvl++;
+	intflag = true;
 }
 
 ISR(INT0_vect){
 	timer = TCNT1;
+	ovf = ovft;
 	TCNT1 = 0;
-	count++;
+	ovft = 0;
+	lvl++;
 	intflag = true;
-	if(count == 38){
-		EIMSK = 0x00;
-	}
 }
 
 ISR(TIMER1_OVF_vect){
-	ovf++;
+	ovft++;
+}
+
+ISR(USART_RX_vect){
+	cmd = UDR0;
 }
